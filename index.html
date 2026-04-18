@@ -1,1 +1,63 @@
-<h1 >Vigil GitHub Pages </h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Plano Cartesiano</title>
+</head>
+
+<body>
+
+<h2>Plano Cartesiano</h2>
+<h2>DESARROLLADO POR VIGIL SILVA CAYTUIRO</h2>
+
+<canvas id="myCanvas" width="500" height="500" style="border:4px solid black;"></canvas>
+
+<script>
+const canvas = document.getElementById("myCanvas");
+const ctx = canvas.getContext("2d");
+
+function dibujarPlano() {
+
+    ctx.clearRect(0, 0, 500, 500);
+
+    // Dibujar cuadrícula
+    ctx.strokeStyle = "#ddd";
+    for (let i = 0; i <= 500; i += 25) {
+        ctx.beginPath();
+        ctx.moveTo(i, 0);
+        ctx.lineTo(i, 500);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(0, i);
+        ctx.lineTo(500, i);
+        ctx.stroke();
+    }
+
+    // Dibujar eje X
+    ctx.beginPath();
+    ctx.moveTo(0, 250);
+    ctx.lineTo(500, 250);
+    ctx.strokeStyle = "black";
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    // Dibujar eje Y
+    ctx.beginPath();
+    ctx.moveTo(250, 0);
+    ctx.lineTo(250, 500);
+    ctx.stroke();
+
+    // Dibujar origen
+    ctx.fillStyle = "red";
+    ctx.beginPath();
+    ctx.arc(250, 250, 4, 0, 2 * Math.PI);
+    ctx.fill();
+}
+
+// ejecutar
+dibujarPlano();
+</script>
+
+</body>
+</html>
